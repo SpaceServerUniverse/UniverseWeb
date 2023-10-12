@@ -9,10 +9,10 @@ export default function Welcome(props: any) {
                 <div className="fixed top-0 right-0 px-6 py-4 sm:block">
                     {props.auth.user ? (
                         <Link
-                            href={route("dashboard")}
+                            href={route("auth.home")}
                             className="text-sm text-gray-700 underline"
                         >
-                            Dashboard
+                            ホーム￥
                         </Link>
                     ) : (
                         <>
@@ -20,7 +20,7 @@ export default function Welcome(props: any) {
                                 href={route("login")}
                                 className="text-sm text-gray-700 underline"
                             >
-                                Log in
+                                ログイン
                             </Link>
                         </>
                     )}
