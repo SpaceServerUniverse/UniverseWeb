@@ -106,7 +106,9 @@ export default function Authenticated({auth, header, children}: Props) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>プロフィール</MenuItem>
+            <Link href={route('auth.profile.show', {profile: auth.user.name})} className="w-full">
+                <MenuItem onClick={handleMenuClose}>プロフィール</MenuItem>
+            </Link>
             <Link href={route('logout')} method="post" as="button" className="w-full">
                 <MenuItem onClick={handleMenuClose}>ログアウト</MenuItem>
             </Link>
@@ -158,7 +160,8 @@ export default function Authenticated({auth, header, children}: Props) {
                     aria-haspopup="true"
                     color="inherit"
                 >
-                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head" style={{width: "23px"}}/>
+                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
+                         style={{width: "23px"}}/>
                 </IconButton>
                 <p>Profile</p>
             </MenuItem>
@@ -213,7 +216,8 @@ export default function Authenticated({auth, header, children}: Props) {
                                     onClick={handleProfileMenuOpen}
                                     color="inherit"
                                 >
-                                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head" style={{width: "23px"}}/>
+                                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
+                                         style={{width: "23px"}}/>
                                 </IconButton>
                             </Box>
                             <Box sx={{display: {xs: 'flex', md: 'none'}}}>

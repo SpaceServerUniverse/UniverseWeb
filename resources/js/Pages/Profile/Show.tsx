@@ -7,9 +7,7 @@ export default function Show(props: any) {
         <Authenticated
             auth={props.auth}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
-                </h2>
+               <></>
             }
         >
             <Head title="Dashboard"/>
@@ -35,6 +33,7 @@ export default function Show(props: any) {
                                         return props.user.money.money;
                                     }
                                 )()}
+                                Star
                             </p>
                             <p>現在のレベル:
                                 {(() => {
@@ -52,7 +51,7 @@ export default function Show(props: any) {
                                         }
                                         return props.user.player_level.total_exp;
                                     }
-                                )()}
+                                )()}EXP
                             </p>
                         </div>
                     </div>
