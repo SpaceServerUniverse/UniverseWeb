@@ -12,7 +12,7 @@ export default function Welcome(props: any) {
                             href={route("auth.home")}
                             className="text-sm text-gray-700 underline"
                         >
-                            ホーム￥
+                            ホーム
                         </Link>
                     ) : (
                         <>

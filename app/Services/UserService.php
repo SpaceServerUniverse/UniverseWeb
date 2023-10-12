@@ -12,7 +12,11 @@ class UserService {
     public function __construct(private readonly UserRepository $userRepository) {
     }
 
-    public function getUserWithMoneyAndLevel(): Model|Collection|Builder|array|null {
-        return $this->userRepository->getUserWithMoneyAndLevel();
+    public function getAuthUser(): Model|Collection|Builder|array|null {
+        return $this->userRepository->getAuthUser();
+    }
+
+    public function getUserFromName($name): Model|Builder|null {
+        return $this->userRepository->getUserFromName($name);
     }
 }

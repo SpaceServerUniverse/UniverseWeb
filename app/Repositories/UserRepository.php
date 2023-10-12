@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserRepository{
 
-    public function getUserWithMoneyAndLevel(): Model|Collection|Builder|array|null {
+    public function getAuthUser(): Model|Collection|Builder|array|null {
         return User::query()->with(['money', 'player_level.player_level_mode_relation'])->find(Auth::id());
+    }
+
+    public function getUserFromName($name): Model|Builder|null {
+        return User::query()->with(['money', 'player_level.player_level_mode_relation'])->where("name", $name)->first();
     }
 }

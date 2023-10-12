@@ -16,7 +16,7 @@ class HomeController extends Controller {
 
     public function index(): Response {
         return Inertia::render('Home', [
-            'user' => $this->userService->getUserWithMoneyAndLevel()
+            'user' => $this->userService->getAuthUser()
         ]);
     }
 }
