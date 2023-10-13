@@ -53,8 +53,8 @@ export default function Login({ status, canResetPassword }: Props) {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-                <div>
-                    <Label forInput="name" value="プレイヤー名" />
+                <div className="pt-3">
+                    <Label forInput="name" value="プレイヤー名(BEの場合は*ユーザー名)" />
 
                     <Input
                         type="text"
@@ -103,6 +103,13 @@ export default function Login({ status, canResetPassword }: Props) {
                     </Button>
                 </div>
             </form>
+            <div className="mt-5 text-gray-600 text-sm">
+                <h3 className="text-lg">※注意</h3>
+                <p>Minecraftサーバー内でパスワードを登録してください。</p>
+                <p>パスワードは何度でも変更することができます。</p>
+                <p>パスワードはハッシュ化され、安全に保存されるので第三者に閲覧されることはありません。</p>
+                <p>/password [パスワード]</p>
+            </div>
         </Guest>
     );
 }

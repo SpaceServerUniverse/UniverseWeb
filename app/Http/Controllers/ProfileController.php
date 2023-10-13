@@ -19,6 +19,6 @@ class ProfileController extends Controller {
 
     public function show($name): Response {
         $user = $this->userService->getUserFromName($name);
-        return Inertia::render("Profile/Show", compact("user"));
+        return Inertia::render("Profile/Show", compact("user", "name"));
     }
 }

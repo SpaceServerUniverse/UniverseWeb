@@ -9,13 +9,13 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import {Link} from "@inertiajs/inertia-react";
+import {Inertia} from "@inertiajs/inertia";
+import {useState} from "react";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -69,6 +69,7 @@ export default function Authenticated({auth, header, children}: Props) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
         React.useState<null | HTMLElement>(null);
 
+    const [search, setSearch] = useState('');
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -88,6 +89,14 @@ export default function Authenticated({auth, header, children}: Props) {
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.nativeEvent.isComposing || e.key !== 'Enter') return
+        if (search == "") {
+            return;
+        }
+        Inertia.get(route('auth.profile.show', {profile: search}))
+    }
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -133,37 +142,39 @@ export default function Authenticated({auth, header, children}: Props) {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon/>
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
+                <Link
+                    href="#"
+                    className="text-sm text-gray-800 mx-2"
+                >
+                    検索
+                </Link>
             </MenuItem>
             <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
+                <Link
+                    href="#"
+                    className="text-sm text-gray-800 mx-2"
                 >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon/>
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
+                    ショップ
+                </Link>
+            </MenuItem>
+            <MenuItem>
+                <Link
+                    href="#"
+                    className="text-sm text-gray-800 mx-2"
+                >
+                    フレンド
+                </Link>
+            </MenuItem>
+            <MenuItem>
+                <Link
+                    href="#"
+                    className="text-sm text-gray-800 mx-2"
+                >
+                    ランキング
+                </Link>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
-                         style={{width: "23px"}}/>
-                </IconButton>
-                <p>Profile</p>
+                <p className="text-sm text-gray-800 mx-2">プロフィール</p>
             </MenuItem>
         </Menu>
     );
@@ -174,39 +185,58 @@ export default function Authenticated({auth, header, children}: Props) {
                 <Box sx={{flexGrow: 1}}>
                     <AppBar color="secondary" position="static">
                         <Toolbar>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{display: {xs: 'none', sm: 'block'}}}
-                            >
-                                UniverseWeb
-                            </Typography>
-                            <Search>
-                                <SearchIconWrapper>
-                                    <SearchIcon/>
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search Player"
-                                    inputProps={{'aria-label': 'search'}}
-                                />
-                            </Search>
+                            <Link href={route("auth.home")}>
+                                <Typography
+                                    variant="h6"
+                                    noWrap
+                                    component="div"
+                                >
+                                    UniverseWeb
+                                </Typography>
+                            </Link>
+                            <Box sx={{display: {xs: 'none', md: 'flex'}}}>
+                                <Link
+                                    href="#"
+                                    className="text-sm text-white ms-4 mx-2"
+                                >
+                                    検索
+                                </Link>
+                                <Link
+                                    href="#"
+                                    className="text-sm text-white mx-2"
+                                >
+                                    ショップ
+                                </Link>
+                                <Link
+                                    href="#"
+                                    className="text-sm text-white mx-2"
+                                >
+                                    フレンド
+                                </Link>
+                                <Link
+                                    href="#"
+                                    className="text-sm text-white mx-2"
+                                >
+                                    ランキング
+                                </Link>
+
+                            </Box>
                             <Box sx={{flexGrow: 1}}/>
                             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
-                                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                    <Badge badgeContent={4} color="error">
-                                        <MailIcon/>
-                                    </Badge>
-                                </IconButton>
-                                <IconButton
-                                    size="large"
-                                    aria-label="show 17 new notifications"
-                                    color="inherit"
-                                >
-                                    <Badge badgeContent={17} color="error">
-                                        <NotificationsIcon/>
-                                    </Badge>
-                                </IconButton>
+                                <Search>
+                                    <SearchIconWrapper>
+                                        <SearchIcon/>
+                                    </SearchIconWrapper>
+                                    <StyledInputBase
+                                        placeholder="Search Player"
+                                        inputProps={{'aria-label': 'search'}}
+                                        onKeyDown={handleKeyDown}
+                                        value={search}
+                                        onChange={(event) => setSearch(event.target.value)}
+                                    />
+                                </Search>
+                            </Box>
+                            <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                                 <IconButton
                                     size="large"
                                     edge="end"
@@ -219,6 +249,7 @@ export default function Authenticated({auth, header, children}: Props) {
                                     <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
                                          style={{width: "23px"}}/>
                                 </IconButton>
+
                             </Box>
                             <Box sx={{display: {xs: 'flex', md: 'none'}}}>
                                 <IconButton
@@ -229,7 +260,8 @@ export default function Authenticated({auth, header, children}: Props) {
                                     onClick={handleMobileMenuOpen}
                                     color="inherit"
                                 >
-                                    <MoreIcon/>
+                                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
+                                         style={{width: "25px"}}/>
                                 </IconButton>
                             </Box>
                         </Toolbar>
@@ -238,11 +270,13 @@ export default function Authenticated({auth, header, children}: Props) {
                     {renderMenu}
                 </Box>
             </header>
-            <main>
+            <main style={{minHeight: "95vh"}}>
                 {children}
             </main>
             <footer>
-
+                <div className="w-full bg-black p-4" style={{minHeight: "100px"}}>
+                    <p className="text-center text-xs text-gray-400 mt-6">©2015 - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
+                </div>
             </footer>
         </>
     );
