@@ -141,6 +141,19 @@ export default function Authenticated({auth, header, children}: Props) {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
+            <Search className="w-full">
+                <SearchIconWrapper>
+                    <SearchIcon/>
+                </SearchIconWrapper>
+                <StyledInputBase
+                    placeholder="Search Player"
+                    inputProps={{'aria-label': 'search'}}
+                    onKeyDown={handleKeyDown}
+                    className="w-full"
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                />
+            </Search>
             <MenuItem>
                 <Link
                     href="#"
@@ -275,7 +288,8 @@ export default function Authenticated({auth, header, children}: Props) {
             </main>
             <footer>
                 <div className="w-full bg-black p-4" style={{minHeight: "100px"}}>
-                    <p className="text-center text-xs text-gray-400 mt-6">©2015 - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
+                    <p className="text-center text-xs text-gray-400 mt-6">©2015
+                        - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
                 </div>
             </footer>
         </>
