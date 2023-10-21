@@ -154,13 +154,8 @@ export default function Authenticated({auth, header, children}: Props) {
                     onChange={(event) => setSearch(event.target.value)}
                 />
             </Search>
-            <MenuItem>
-                <Link
-                    href={route("auth.search.index")}
-                    className="text-sm text-gray-800 mx-2"
-                >
-                    検索
-                </Link>
+            <MenuItem component={Link} href={route("auth.search.index")} >
+                    <span className="text-sm text-gray-800 mx-2">検索</span>
             </MenuItem>
             <MenuItem>
                 <Link
