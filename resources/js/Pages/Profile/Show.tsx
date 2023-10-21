@@ -10,10 +10,11 @@ export default function Show(props: any) {
                 <></>
             }
         >
-            <Head title="Dashboard"/>
+            <Head title="プロフィール"/>
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <h3 className="text-center text-2xl mb-3">プロフィール</h3>
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200 text-center">
                             {(() => {
@@ -35,7 +36,7 @@ export default function Show(props: any) {
                                         <div className="mb-4">
                                             <h3 className="text-3xl">{props.user.name}</h3>
                                         </div>
-                                        <p>現在の所持金:
+                                        <p>所持金:
                                             {(() => {
                                                     if (props.user.money == null) {
                                                         return 0;
@@ -45,7 +46,7 @@ export default function Show(props: any) {
                                             )()}
                                             Star
                                         </p>
-                                        <p>現在のレベル:
+                                        <p>レベル:
                                             {(() => {
                                                     if (props.user.player_level == null) {
                                                         return 1;

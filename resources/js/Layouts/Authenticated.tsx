@@ -156,7 +156,7 @@ export default function Authenticated({auth, header, children}: Props) {
             </Search>
             <MenuItem>
                 <Link
-                    href="#"
+                    href={route("auth.search.index")}
                     className="text-sm text-gray-800 mx-2"
                 >
                     検索
@@ -209,7 +209,7 @@ export default function Authenticated({auth, header, children}: Props) {
                             </Link>
                             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                                 <Link
-                                    href="#"
+                                    href={route("auth.search.index")}
                                     className="text-sm text-white ms-4 mx-2"
                                 >
                                     検索
