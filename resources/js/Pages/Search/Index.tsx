@@ -55,12 +55,10 @@ export default function Index(props: any) {
     return (
         <Authenticated
             auth={props.auth}
-            header={
-                <></>
-            }
+            flash={props.flash}
         >
-            <Head title="検索"/>
-            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-5">
+            <Head title="検索 - UniverseWeb"/>
+            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
                 <div>
                     <Box sx={{display: "flex", justifyContent: "center"}}>
                         <Paper

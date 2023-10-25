@@ -1,21 +1,18 @@
 import * as React from 'react';
-import {styled, alpha} from '@mui/material/styles';
+import {useEffect, useState} from 'react';
+import {alpha, styled} from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import {Link} from "@inertiajs/inertia-react";
 import {Inertia} from "@inertiajs/inertia";
-import {useState} from "react";
+import {Alert, Snackbar} from '@mui/material';
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -60,11 +57,36 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 
 interface Props {
     auth: any;
-    header: React.ReactNode;
+    flash: any;
     children: React.ReactNode;
 }
 
-export default function Authenticated({auth, header, children}: Props) {
+export default function Authenticated({auth, children, flash}: Props) {
+    const [open, setOpen] = React.useState({
+        'error': false,
+        'warning': false,
+        'info': false,
+        'success': false
+    });
+
+    useEffect(() => {
+        if (flash !== undefined) {
+            setOpen({
+                'error': flash.error !== null,
+                'warning': flash.warning !== null,
+                'info': flash.info !== null,
+                'success': flash.success !== null
+            })
+        }
+    }, [flash]);
+
+    const handleClose = (type: string) => {
+        setOpen(open => ({
+            ...open,
+            [type]: false,
+        }))
+    };
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
         React.useState<null | HTMLElement>(null);
@@ -173,13 +195,8 @@ export default function Authenticated({auth, header, children}: Props) {
                     フレンド
                 </Link>
             </MenuItem>
-            <MenuItem>
-                <Link
-                    href="#"
-                    className="text-sm text-gray-800 mx-2"
-                >
-                    ランキング
-                </Link>
+            <MenuItem component={Link} href={route("auth.ranking.index")}>
+                <span className="text-sm text-gray-800 mx-2">ランキング</span>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <p className="text-sm text-gray-800 mx-2">プロフィール</p>
@@ -189,6 +206,30 @@ export default function Authenticated({auth, header, children}: Props) {
 
     return (
         <>
+            <Snackbar open={open.success} onClose={() => handleClose("success")} autoHideDuration={6000}
+                      anchorOrigin={{vertical: "top", horizontal: "center"}}>
+                <Alert severity="success"
+                       onClose={() => handleClose("success")}
+                       sx={{width: '100%'}}>{flash !== undefined && flash.success !== null ? flash.success : ''}</Alert>
+            </Snackbar>
+            <Snackbar open={open.warning} onClose={() => handleClose("warning")} autoHideDuration={6000}
+                      anchorOrigin={{vertical: "top", horizontal: "center"}}>
+                <Alert severity="warning"
+                       onClose={() => handleClose("warning")}
+                       sx={{width: '100%'}}>{flash !== undefined && flash.warning !== null ? flash.warning : ''}</Alert>
+            </Snackbar>
+            <Snackbar open={open.info} onClose={() => handleClose("info")} autoHideDuration={6000}
+                      anchorOrigin={{vertical: "top", horizontal: "center"}}>
+                <Alert severity="info"
+                       onClose={() => handleClose("info")}
+                       sx={{width: '100%'}}>{flash !== undefined && flash.info !== null ? flash.info : ''}</Alert>
+            </Snackbar>
+            <Snackbar open={open.error} onClose={() => handleClose("error")} autoHideDuration={6000}
+                      anchorOrigin={{vertical: "top", horizontal: "center"}}>
+                <Alert severity="error"
+                       onClose={() => handleClose("error")}
+                       sx={{width: '100%'}}>{flash !== undefined && flash.error !== null ? flash.error : ''}</Alert>
+            </Snackbar>
             <header>
                 <Box sx={{flexGrow: 1}}>
                     <AppBar color="secondary" position="static">
@@ -222,7 +263,7 @@ export default function Authenticated({auth, header, children}: Props) {
                                     フレンド
                                 </Link>
                                 <Link
-                                    href="#"
+                                    href={route("auth.ranking.index")}
                                     className="text-sm text-white mx-2"
                                 >
                                     ランキング
@@ -278,13 +319,14 @@ export default function Authenticated({auth, header, children}: Props) {
                     {renderMenu}
                 </Box>
             </header>
-            <main style={{minHeight: "95vh"}}>
+            <main className="bg-gray-100" style={{minHeight: "100vh"}}>
                 {children}
             </main>
             <footer>
                 <div className="w-full bg-black p-4" style={{minHeight: "100px"}}>
                     <p className="text-center text-xs text-gray-400 mt-6">©2015
                         - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
+                    <p className="text-center text-xs text-gray-400">当サーバーはMinecraft非公式サーバーであり、microsoft , Mojang Studiosとは一切関与していません。</p>
                 </div>
             </footer>
         </>

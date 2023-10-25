@@ -42,7 +42,7 @@ export default function Login({ status, canResetPassword }: Props) {
 
     return (
         <Guest>
-            <Head title="ログイン" />
+            <Head title="ログイン - UniverseWeb" />
 
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">

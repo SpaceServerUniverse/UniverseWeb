@@ -15,7 +15,7 @@ import {Container} from "@mui/material";
 export default function Welcome(props: any) {
     return (
         <>
-            <Head title="Welcome"/>
+            <Head title="UniverseWeb"/>
             <header>
                 <Box sx={{flexGrow: 1}}>
                     <AppBar color="secondary" position="static">
@@ -62,7 +62,9 @@ export default function Welcome(props: any) {
             </main>
             <footer>
                 <div className="w-full bg-black p-4" style={{minHeight: "100px"}}>
-                    <p className="text-center text-xs text-gray-400 mt-6">©2015 - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
+                    <p className="text-center text-xs text-gray-400 mt-6">©2015
+                        - {new Date().getFullYear()} SpaceServerProject All rights reserved.</p>
+                    <p className="text-center text-xs text-gray-400">当サーバーはMinecraft非公式サーバーであり、microsoft , Mojang Studiosとは一切関与していません。</p>
                 </div>
             </footer>
         </>
