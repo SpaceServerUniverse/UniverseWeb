@@ -22,8 +22,8 @@ Route::middleware('auth')->group(function() {
        Route::get("/result/{search}", [SearchController::class, "result"])->name('result');
     });
 
-    /*Route::resource("ranking", RankingController::class, [
+    Route::resource("ranking", RankingController::class, [
         "only" => ["index"]
-    ]);*/
+    ]);
 
 });
