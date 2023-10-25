@@ -36,7 +36,7 @@ export default function Home(props: any) {
                              style={{minWidth: 300, width: "30%"}}>
                             <p className="text-lg text-center">所持金</p>
                             <div className="py-5 text-center text-2xl">
-                                {props.user.money.money}star #1位
+                                {props.user.money.money}star #{props.money_rank}位
                             </div>
                         </div>
                         <div className="bg-white overflow-hidden shadow-sm rounded-lg m-3 p-2"
@@ -44,7 +44,7 @@ export default function Home(props: any) {
                             <p className="text-lg text-center">レベル</p>
                             <div className="my-5">
                                 <div className="text-center text-2xl">
-                                    {props.user.player_level.player_level_mode_relation.level}Lv #1位
+                                    {props.user.player_level.player_level_mode_relation.level}Lv #{props.level_rank}位
                                 </div>
                                 <div className="text-sm text-center">
                                     {props.user.player_level.total_exp}exp
