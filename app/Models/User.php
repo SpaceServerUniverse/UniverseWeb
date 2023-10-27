@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Level\PlayerLevel;
+use App\Models\Position\UserPosition;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -52,5 +53,9 @@ class User extends Authenticatable
 
     public function player_level(): HasOne {
         return $this->hasOne(PlayerLevel::class, "user_id");
+    }
+
+    public function user_position():hasOne{
+        return $this->hasOne(UserPosition::class, 'user_id');
     }
 }

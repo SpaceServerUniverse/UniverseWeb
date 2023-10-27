@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class UserRepository{
 
     public function getAuthUser(): Model|Collection|Builder|array|null {
-        return User::query()->with(['money', 'player_level.player_level_mode_relation'])->find(Auth::id());
+        return User::query()->with(['money', 'player_level.player_level_mode_relation', 'user_position.position'])->find(Auth::id());
     }
 
     public function getUserFromName($name): Model|Builder|null {
-        return User::query()->with(['money', 'player_level.player_level_mode_relation'])->where("name", $name)->first();
+        return User::query()->with(['money', 'player_level.player_level_mode_relation', 'user_position.position'])->where("name", $name)->first();
     }
 
     public function getUserPagination(Request $request): LengthAwarePaginator {
