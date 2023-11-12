@@ -26,4 +26,9 @@ Route::middleware('auth')->group(function() {
         "only" => ["index"]
     ]);
 
+    Route::prefix("ranking")->namespace("ranking")->name("ranking.")->group(function(){
+       Route::get("/money", [RankingController::class, "money"])->name("money");
+       Route::get("/normal_level", [RankingController::class, "normal_level"])->name("normal_level");
+    });
+
 });

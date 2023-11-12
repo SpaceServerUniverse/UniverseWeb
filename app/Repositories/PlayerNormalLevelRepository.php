@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\Repositories\PlayerLevelModeRepositoryInterface;
 use App\Models\Level\PlayerNormalLevel;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 class PlayerNormalLevelRepository implements PlayerLevelModeRepositoryInterface {
@@ -15,9 +16,13 @@ class PlayerNormalLevelRepository implements PlayerLevelModeRepositoryInterface 
             ->pluck('user_id')
             ->search($user_id);
 
-        if($rankings === false){
+        if ($rankings === false) {
             return 0;
         }
         return (int)$rankings + 1;
+    }
+
+    public function getLevelRank(int $limit): Collection|array {
+        return PlayerNormalLevel::query()->with('user')->orderByDesc("level")->limit($limit)->get();
     }
 }

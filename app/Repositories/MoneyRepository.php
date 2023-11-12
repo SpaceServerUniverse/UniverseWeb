@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Money;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 class MoneyRepository{
@@ -17,5 +18,9 @@ class MoneyRepository{
             return 0;
         }
         return (int)$rankings + 1;
+    }
+
+    public function getMoneyRank(int $limit): Collection|array {
+        return Money::query()->with('user')->limit(10)->orderByDesc("money")->get();
     }
 }
