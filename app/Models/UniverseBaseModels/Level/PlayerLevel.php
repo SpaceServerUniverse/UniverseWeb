@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Level;
+namespace App\Models\UniverseBaseModels\Level;
 
 use App\Library\Level\Level;
-use App\Models\UniverseBaseModel;
+use App\Models\UniverseBaseModels\UniverseBaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 

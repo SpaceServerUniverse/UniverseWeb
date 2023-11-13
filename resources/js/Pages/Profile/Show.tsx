@@ -4,6 +4,7 @@ import React from "react";
 import {Divider} from "@mui/material";
 
 export default function Show(props: any) {
+    const introduction = props.user.profile === null ? "設定されていません" : props.user.profile.introduction;
     return (
         <Authenticated
             auth={props.auth}
@@ -43,8 +44,7 @@ export default function Show(props: any) {
                                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg m-3">
                                         <div className="p-6 bg-white border-b border-gray-200 text-center">
                                             <p className="text-lg text-center">自己紹介</p>
-                                            <p>よろしくお願いします。</p>
-                                            <p>レベルランキング１位を目指しています。</p>
+                                            <p>{introduction}</p>
                                         </div>
                                     </div>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Ranking\RankingController;
 use App\Http\Controllers\Search\SearchController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function() {
@@ -13,6 +14,10 @@ Route::middleware('auth')->group(function() {
     Route::resource("profile", ProfileController::class, [
         "only" => ["show"]
     ]);
+
+    Route::prefix("profile")->namespace("profile")->name("profile.")->group(function(){
+        Route::patch("/update", [ProfileController::class, "update"])->name("update");
+    });
 
     Route::resource("search", SearchController::class, [
         "only" => ["index"]
@@ -31,4 +36,7 @@ Route::middleware('auth')->group(function() {
        Route::get("/normal_level", [RankingController::class, "normal_level"])->name("normal_level");
     });
 
+    Route::resource("setting", SettingController::class, [
+        "only" => ["index"]
+    ]);
 });

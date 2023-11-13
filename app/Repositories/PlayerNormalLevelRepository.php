@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Interfaces\Repositories\PlayerLevelModeRepositoryInterface;
-use App\Models\Level\PlayerNormalLevel;
+use App\Models\UniverseBaseModels\Level\PlayerNormalLevel;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 

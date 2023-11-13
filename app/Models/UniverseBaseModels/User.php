@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\UniverseBaseModels;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Level\PlayerLevel;
-use App\Models\Position\UserPosition;
+use App\Models\Profile;
+use App\Models\UniverseBaseModels\Level\PlayerLevel;
+use App\Models\UniverseBaseModels\Position\UserPosition;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,6 +47,10 @@ class User extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function profile(): HasOne {
+        return $this->hasOne(Profile::class, "user_id");
+    }
 
     public function money(): HasOne {
         return $this->hasOne(Money::class, "user_id");

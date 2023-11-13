@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Money;
+use App\Models\UniverseBaseModels\Money;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 

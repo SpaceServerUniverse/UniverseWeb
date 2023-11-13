@@ -1,15 +1,9 @@
-import React, {useState} from "react";
-import {Link, Head} from "@inertiajs/inertia-react";
+import React from "react";
+import {Head, Link} from "@inertiajs/inertia-react";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import SearchIcon from "@mui/icons-material/Search";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import {Container} from "@mui/material";
 
 export default function Welcome(props: any) {

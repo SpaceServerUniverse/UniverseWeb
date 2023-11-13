@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { Link } from '@inertiajs/inertia-react';
-import { Transition } from '@headlessui/react';
+import React, {useContext, useState} from 'react';
+import {Link} from '@inertiajs/inertia-react';
+import {Transition} from '@headlessui/react';
 
 interface ContextType {
     open: boolean,

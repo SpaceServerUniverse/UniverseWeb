@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models\Position;
+namespace App\Models\UniverseBaseModels\Position;
 
-use App\Models\UniverseBaseModel;
-use App\Models\User;
+use App\Models\UniverseBaseModels\UniverseBaseModel;
+use App\Models\UniverseBaseModels\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 

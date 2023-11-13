@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Position\Position;
+use App\Models\UniverseBaseModels\Position\Position;
 
 class PositionRepository {
 

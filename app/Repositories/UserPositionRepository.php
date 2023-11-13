@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Position\UserPosition;
+use App\Models\UniverseBaseModels\Position\UserPosition;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 

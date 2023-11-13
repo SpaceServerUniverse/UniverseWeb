@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Level\PlayerLevel;
+use App\Models\UniverseBaseModels\Level\PlayerLevel;
 
 class PlayerLevelRepository {
 

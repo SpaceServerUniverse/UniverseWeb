@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Position;
+namespace App\Models\UniverseBaseModels\Position;
 
-use App\Models\UniverseBaseModel;
+use App\Models\UniverseBaseModels\UniverseBaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Position extends UniverseBaseModel {

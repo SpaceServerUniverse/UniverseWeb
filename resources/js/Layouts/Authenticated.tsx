@@ -140,6 +140,9 @@ export default function Authenticated({auth, children, flash}: Props) {
             <Link href={route('auth.profile.show', {profile: auth.user.name})} className="w-full">
                 <MenuItem onClick={handleMenuClose}>プロフィール</MenuItem>
             </Link>
+            <Link href={route('auth.setting.index')} className="w-full">
+                <MenuItem onClick={handleMenuClose}>設定</MenuItem>
+            </Link>
             <Link href={route('logout')} method="post" as="button" className="w-full">
                 <MenuItem onClick={handleMenuClose}>ログアウト</MenuItem>
             </Link>

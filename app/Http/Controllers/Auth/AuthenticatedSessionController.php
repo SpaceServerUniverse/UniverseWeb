@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\Services\ProfileService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,10 @@ use Inertia\Response;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    public function __construct(private ProfileService $profileService) {
+    }
+
     /**
      * Display the login view.
      */
@@ -34,6 +39,10 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        if(!isset(Auth::user()->profile)){
+            $this->profileService->create(Auth::id());
+        }
 
 
         Session::flash('message_success',"おかえりなさい！ ". Auth::user()->name);

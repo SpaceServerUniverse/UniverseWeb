@@ -1,5 +1,5 @@
 import React from "react";
-import {Head, Link} from "@inertiajs/inertia-react";
+import {Head} from "@inertiajs/inertia-react";
 import Authenticated from "@/Layouts/Authenticated";
 import RankingPlayerCard from "@/Components/RankingPlayerCard";
 

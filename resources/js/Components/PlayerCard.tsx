@@ -1,11 +1,8 @@
-import {Autocomplete, Card, CardContent, CardMedia, Paper, useTheme} from "@mui/material";
+import {Card, CardContent} from "@mui/material";
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {Link} from "@inertiajs/inertia-react";
-import IconButton from "@mui/material/IconButton";
-import {Inertia} from "@inertiajs/inertia";
-import SearchIcon from "@mui/icons-material/Search";
 
 export default function PlayerCard(props: any) {
     const prefix = props.props.name.slice(0,1);
