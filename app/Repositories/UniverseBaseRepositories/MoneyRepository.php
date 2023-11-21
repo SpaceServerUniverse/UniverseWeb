@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\UniverseBaseRepositories;
 
 use App\Models\UniverseBaseModels\Money;
 use Illuminate\Database\Eloquent\Collection;

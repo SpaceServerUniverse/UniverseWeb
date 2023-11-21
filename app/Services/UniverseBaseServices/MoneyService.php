@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices;
 
-use App\Repositories\MoneyRepository;
+use App\Repositories\UniverseBaseRepositories\MoneyRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class MoneyService{

@@ -298,7 +298,7 @@ export default function Authenticated({auth, children, flash}: Props) {
                                     onClick={handleProfileMenuOpen}
                                     color="inherit"
                                 >
-                                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
+                                    <img src={"https://mc-heads.net/avatar/" + auth.user.uuid} alt="skin head"
                                          style={{width: "23px"}}/>
                                 </IconButton>
 
@@ -312,7 +312,7 @@ export default function Authenticated({auth, children, flash}: Props) {
                                     onClick={handleMobileMenuOpen}
                                     color="inherit"
                                 >
-                                    <img src={"https://crafatar.com/avatars/" + auth.user.uuid} alt="skin head"
+                                    <img src={"https://mc-heads.net/avatar/" + auth.user.uuid} alt="skin head"
                                          style={{width: "25px"}}/>
                                 </IconButton>
                             </Box>

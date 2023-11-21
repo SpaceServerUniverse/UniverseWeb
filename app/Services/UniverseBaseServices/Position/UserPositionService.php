@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices\Position;
 
-use App\Repositories\UserPositionRepository;
+use App\Repositories\UniverseBaseRepositories\Position\UserPositionRepository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 

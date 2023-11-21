@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Ranking;
 
 use App\Http\Controllers\Controller;
-use App\Services\MoneyService;
-use App\Services\PlayerNormalLevelService;
+use App\Services\UniverseBaseServices\Level\PlayerNormalLevelService;
+use App\Services\UniverseBaseServices\MoneyService;
 use Inertia\Inertia;
 use Inertia\Response;
 

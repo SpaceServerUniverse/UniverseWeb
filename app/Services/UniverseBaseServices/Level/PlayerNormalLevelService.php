@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices\Level;
 
 use App\Interfaces\Services\PlayerLevelModeServiceInterface;
-use App\Repositories\PlayerNormalLevelRepository;
+use App\Repositories\UniverseBaseRepositories\Level\PlayerNormalLevelRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class PlayerNormalLevelService implements PlayerLevelModeServiceInterface {

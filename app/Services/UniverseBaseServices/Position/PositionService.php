@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices\Position;
 
-use App\Repositories\PositionRepository;
+use App\Repositories\UniverseBaseRepositories\Position\PositionRepository;
 
 class PositionService{
     public function __construct(private PositionRepository $positionRepository) {

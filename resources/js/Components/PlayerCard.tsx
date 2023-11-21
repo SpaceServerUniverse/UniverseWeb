@@ -15,7 +15,7 @@ export default function PlayerCard(props: any) {
         <>
             <Link href={route('auth.profile.show', {profile: props.props.name})} className="my-3">
                 <Card sx={{display: 'flex', width: "300px", marginTop: "10px"}}>
-                    <img src={"https://crafatar.com/avatars/" + props.props.uuid}
+                    <img src={"https://mc-heads.net/avatar/" + props.props.uuid}
                          alt="skin head"
                          style={{width: "95px", height: "95px"}}/>
                     <Box sx={{display: 'flex', flexDirection: 'column'}} className="p-0">

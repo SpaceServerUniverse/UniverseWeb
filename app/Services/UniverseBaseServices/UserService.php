@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices;
 
-use App\Repositories\UserRepository;
+use App\Repositories\UniverseBaseRepositories\UserRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\UniverseBaseRepositories\Level;
 
 use App\Models\UniverseBaseModels\Level\PlayerLevel;
 

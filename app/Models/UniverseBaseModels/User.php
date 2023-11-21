@@ -4,6 +4,7 @@ namespace App\Models\UniverseBaseModels;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Profile;
+use App\Models\UniverseBaseModels\Count\Count;
 use App\Models\UniverseBaseModels\Level\PlayerLevel;
 use App\Models\UniverseBaseModels\Position\UserPosition;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -62,5 +63,9 @@ class User extends Authenticatable
 
     public function user_position():hasOne{
         return $this->hasOne(UserPosition::class, 'user_id');
+    }
+
+    public function count():hasOne{
+        return $this->hasOne(Count::class, "user_id");
     }
 }

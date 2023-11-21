@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\UniverseBaseServices\Level;
 
 use App\Interfaces\Services\PlayerLevelModeServiceInterface;
-use App\Repositories\PlayerLevelRepository;
+use App\Repositories\UniverseBaseRepositories\Level\PlayerLevelRepository;
 
 class PlayerLevelService{
 

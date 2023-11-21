@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MoneyService;
-use App\Services\PlayerLevelService;
-use App\Services\UserService;
+use App\Services\UniverseBaseServices\Level\PlayerLevelService;
+use App\Services\UniverseBaseServices\MoneyService;
+use App\Services\UniverseBaseServices\UserService;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;

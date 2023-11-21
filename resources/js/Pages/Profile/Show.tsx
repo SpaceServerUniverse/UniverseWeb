@@ -2,6 +2,7 @@ import Authenticated from "@/Layouts/Authenticated";
 import {Head} from "@inertiajs/inertia-react";
 import React from "react";
 import {Divider} from "@mui/material";
+import DisplayStatus from "@/Components/DisplayStatus";
 
 export default function Show(props: any) {
     const introduction = props.user.profile === null ? "設定されていません" : props.user.profile.introduction;
@@ -31,7 +32,7 @@ export default function Show(props: any) {
                                     <div className="md:flex md:justify-center">
                                         <div className="mb-4 mx-5">
                                             <div className="flex justify-center md:block">
-                                                <img src={"https://crafatar.com/avatars/" + props.user.uuid}
+                                                <img src={"https://mc-heads.net/avatar/" + props.user.uuid}
                                                      alt="skin head"
                                                      style={{width: "50px"}}/>
                                             </div>
@@ -74,13 +75,26 @@ export default function Show(props: any) {
                                         <div>
                                             <h4 className="text-center text-xl">カウンター</h4>
                                             <div className="bg-white overflow-hidden shadow-sm rounded-lg m-3 p-2">
-                                                <div className="bg-white overflow-hidden shadow-sm rounded-lg m-3 p-2"
-                                                     style={{minWidth: 300, width: "30%"}}>
-                                                    <p className="text-lg text-center">ブロック破壊数</p>
-                                                    <div className="py-5 text-center text-2xl">
-                                                        1個
-                                                    </div>
-                                                </div>
+                                                {(() => {
+                                                    if(props.user.count != null){
+                                                       return (
+                                                           <>
+                                                               <DisplayStatus title="プレイヤーキル数" counter={props.user.count.kill_death_count.player_kill+"人"}/>
+                                                               <DisplayStatus title="mobキル数" counter={props.user.count.kill_death_count.mob_kill+"体"}/>
+                                                               <DisplayStatus title="エンドラキル数" counter={props.user.count.kill_death_count.ender_dragon_kill+"匹"}/>
+                                                               <DisplayStatus title="ウィザーキル数" counter={props.user.count.kill_death_count.wither_kill+"匹"}/>
+                                                               <DisplayStatus title="デス数" counter={props.user.count.kill_death_count.death+"回"}/>
+                                                           </>
+                                                       );
+                                                    }else {
+                                                        return (
+                                                            <>
+                                                                <DisplayStatus title="エラー" counter="存在しません。"/>
+                                                            </>
+                                                        )
+                                                    }
+                                                })()}
+
                                             </div>
                                         </div>
                                         <div>

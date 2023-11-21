@@ -16,7 +16,7 @@ export default function RankingPlayerCard({user, rank, val}: Props) {
         <>
             <Link href={route('auth.profile.show', {profile: user.name})}>
                 <Card sx={{display: 'flex', minWidth: "300px", maxWidth: "700px", marginTop: "20px"}}>
-                    <img src={"https://crafatar.com/avatars/" + user.uuid}
+                    <img src={"https://mc-heads.net/avatar/" + user.uuid}
                          alt="skin head"
                          style={{width: "95px", height: "95px"}}/>
                     <Box sx={{display: 'flex', flexDirection: 'column'}} className="p-0">

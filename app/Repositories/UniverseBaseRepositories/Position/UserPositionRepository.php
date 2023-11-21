@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\UniverseBaseRepositories\Position;
 
 use App\Models\UniverseBaseModels\Position\UserPosition;
 use Illuminate\Database\Eloquent\Builder;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Search;
 
 use App\Http\Controllers\Controller;
-use App\Services\UserService;
+use App\Services\UniverseBaseServices\UserService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;

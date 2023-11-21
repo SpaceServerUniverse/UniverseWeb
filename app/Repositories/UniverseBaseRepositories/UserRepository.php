@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\UniverseBaseRepositories;
 
 use App\Models\UniverseBaseModels\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -16,7 +16,15 @@ class UserRepository{
     }
 
     public function getUserFromName($name): Model|Builder|null {
-        return User::query()->with(['money', 'player_level.player_level_mode_relation', 'user_position.position', 'profile'])->where("name", $name)->first();
+        return User::query()->with(
+            [
+                'money',
+                'player_level.player_level_mode_relation',
+                'user_position.position',
+                'profile',
+                'count.kill_death_count'
+            ]
+        )->where("name", $name)->first();
     }
 
     public function getUserPagination(Request $request): LengthAwarePaginator {
