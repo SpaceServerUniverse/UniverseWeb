@@ -21,15 +21,15 @@ class Count extends UniverseBaseModel
     }
 
     public function life_count():hasOne{
-        return $this->hasOne(LifeCount::class);
+        return $this->hasOne(LifeCount::class, "count_id");
     }
 
     public function ore_count():hasOne{
-        return $this->hasOne(OreCount::class);
+        return $this->hasOne(OreCount::class, "count_id");
     }
 
     public function player_count():hasONe{
-        return $this->hasOne(PlayerCount::class);
+        return $this->hasOne(PlayerCount::class, "count_id");
     }
 
 }

@@ -12,7 +12,18 @@ use Illuminate\Support\Facades\Auth;
 class UserRepository{
 
     public function getAuthUser(): Model|Collection|Builder|array|null {
-        return User::query()->with(['money', 'player_level.player_level_mode_relation', 'user_position.position', 'profile'])->find(Auth::id());
+        return User::query()->with(
+            [
+                'money',
+                'player_level.player_level_mode_relation',
+                'user_position.position',
+                'profile',
+                'count.kill_death_count',
+                'count.life_count',
+                'count.ore_count',
+                'count.player_count'
+            ]
+        )->find(Auth::id());
     }
 
     public function getUserFromName($name): Model|Builder|null {
@@ -22,7 +33,10 @@ class UserRepository{
                 'player_level.player_level_mode_relation',
                 'user_position.position',
                 'profile',
-                'count.kill_death_count'
+                'count.kill_death_count',
+                'count.life_count',
+                'count.ore_count',
+                'count.player_count'
             ]
         )->where("name", $name)->first();
     }
