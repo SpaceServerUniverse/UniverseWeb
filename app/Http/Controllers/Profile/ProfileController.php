@@ -31,9 +31,12 @@ class ProfileController extends Controller {
         PlayerLevelService $playerLevelService,
     ): Response {
         $user = $userService->getUserFromName($name);
-        $money_rank = $moneyService->getUserMoneyRank($user->id);
-        $level_rank = $playerLevelService->getLevelModeService($user->id)->getUserLevelRank($user->id);
-        return Inertia::render("Profile/Show", compact("user", "money_rank", "level_rank", "name"));
+        if($user != null){
+            $money_rank = $moneyService->getUserMoneyRank($user->id);
+            $level_rank = $playerLevelService->getLevelModeService($user->id)->getUserLevelRank($user->id);
+            return Inertia::render("Profile/Show", compact("user", "money_rank", "level_rank", "name"));
+        }
+        return Inertia::render("Profile/Show", compact("user", "name"));
     }
 
     public function update(UpdateProfileRequest $request): Application|Redirector|RedirectResponse|\Illuminate\Contracts\Foundation\Application {
