@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Setting;
 
+use App\Http\Controllers\Controller;
 use App\Services\ProfileService;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -11,7 +12,8 @@ use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class SettingController extends Controller
+class
+SettingController extends Controller
 {
 
     public function __construct(

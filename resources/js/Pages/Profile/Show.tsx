@@ -52,19 +52,19 @@ export default function Show(props: any) {
                                         </div>
                                         <div className="flex flex-wrap justify-center md:justify-between md:mt-5">
                                             <div>
-                                                    <div
-                                                        className="bg-white overflow-hidden shadow-sm rounded-lg m-3 p-2"
-                                                        style={{minWidth: 300, width: "30%"}}>
-                                                        <p className="text-lg text-center">役職</p>
-                                                        <div className="py-5 text-center text-2xl">
-                                                            {(() => {
-                                                                    if (props.user.user_position == null) {
-                                                                        return "プレイヤー"
-                                                                    }
-                                                                    return props.user.user_position.position.name;
+                                                <div
+                                                    className="bg-white overflow-hidden shadow-sm rounded-lg m-3 p-2"
+                                                    style={{minWidth: 300, width: "30%"}}>
+                                                    <p className="text-lg text-center">役職</p>
+                                                    <div className="py-5 text-center text-2xl">
+                                                        {(() => {
+                                                                if (props.user.user_position == null) {
+                                                                    return "プレイヤー"
                                                                 }
-                                                            )()}
-                                                        </div>
+                                                                return props.user.user_position.position.name;
+                                                            }
+                                                        )()}
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>
@@ -112,7 +112,7 @@ export default function Show(props: any) {
                                                 </div>
                                             </div>
                                         </div>
-                                            <Divider></Divider>
+                                        <Divider></Divider>
                                         <div className="mt-5">
                                             <p className="text-lg text-center">カウンター</p>
                                             <div className="flex flex-wrap justify-center md:justify-between mt-5">
@@ -121,7 +121,7 @@ export default function Show(props: any) {
                                                     <div
                                                         className="">
                                                         {(() => {
-                                                            if (props.user.count != null) {
+                                                            if (props.user.count != null && props.user.count.kill_death_count != null) {
                                                                 return (
                                                                     <>
                                                                         <DisplayStatus title="プレイヤーキル数"
@@ -153,7 +153,7 @@ export default function Show(props: any) {
                                                     <div
                                                         className="">
                                                         {(() => {
-                                                            if (props.user.count != null) {
+                                                            if (props.user.count != null && props.user.count.life_count != null) {
                                                                 return (
                                                                     <>
                                                                         <DisplayStatus title="釣り数"
@@ -185,7 +185,7 @@ export default function Show(props: any) {
                                                     <div
                                                         className="">
                                                         {(() => {
-                                                            if (props.user.count != null) {
+                                                            if (props.user.count != null && props.user.count.ore_count != null) {
                                                                 return (
                                                                     <>
                                                                         <DisplayStatus title="石炭"
@@ -223,15 +223,33 @@ export default function Show(props: any) {
                                                     <div
                                                         className="">
                                                         {(() => {
-                                                            if (props.user.count != null) {
+                                                            if (props.user.count != null && props.user.count.player_count != null) {
                                                                 return (
                                                                     <>
                                                                         <DisplayStatus title="ログイン日数"
                                                                                        counter={props.user.count.player_count.login + "回"}/>
                                                                         <DisplayStatus title="連続ログイン日数"
                                                                                        counter={props.user.count.player_count.consecutive_login + "回"}/>
-                                                                        <DisplayStatus title="最終ログイン日時"
-                                                                                       counter={last_login_date}/>
+                                                                        {(() => {
+                                                                            if (props.auth.user.id === props.user.id) {
+                                                                                return (
+                                                                                    <DisplayStatus
+                                                                                        title="最終ログイン日時"
+                                                                                        counter={last_login_date}/>
+                                                                                );
+                                                                            }
+                                                                            if (props.user.profile.show_last_login) {
+                                                                                return (
+                                                                                    <DisplayStatus
+                                                                                        title="最終ログイン日時"
+                                                                                        counter={last_login_date}/>
+                                                                                );
+                                                                            }
+                                                                            return <DisplayStatus
+                                                                                title="最終ログイン日時"
+                                                                                counter="非表示"/>
+                                                                        })()}
+
                                                                     </>
                                                                 );
                                                             } else {

@@ -1,19 +1,35 @@
 import {Head, useForm} from "@inertiajs/inertia-react";
-import React from "react";
+import React, {useState} from "react";
 import Authenticated from "@/Layouts/Authenticated";
-import {Button, FormControl, FormHelperText, FormLabel} from "@mui/material";
+import {Button, FormControl, FormControlLabel, FormHelperText, FormLabel, Switch} from "@mui/material";
 import Textarea from '@mui/joy/Textarea';
+import axios from "axios";
 
 export default function Index(props: any) {
     const {data, setData, patch, processing, errors} = useForm({
         introduction: ""
     })
 
+    const [lastLoginOption, setLastLoginOption] = useState(Boolean(props.profile.show_last_login));
+
     function submit(event: any) {
         event.preventDefault();
         patch(route('auth.profile.update')
         )
     }
+
+    const handleLastLoginOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setLastLoginOption(event.target.checked);
+        axios.post(route("auth.ajax.setting.change-show-last-login"), {
+            "show_last_login": event.target.checked
+        })
+            .then(function (response) {
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+
+    };
 
     const error = Object.values(props.errors).map((value: any, index: any) => function () {
         return (<p key={index}>{value}</p>)
@@ -48,6 +64,12 @@ export default function Index(props: any) {
                             </FormControl>
                             <Button type="submit" variant="contained">保存</Button>
                         </form>
+                    </div>
+
+                    <div className="sm:px-0 lg:px-8 w-full">
+                        <p className="text-center mt-10">その他設定</p>
+                        <FormControlLabel
+                            control={<Switch checked={lastLoginOption} onChange={handleLastLoginOptionChange}/>} label="最終ログイン日時表示設定"/>
                     </div>
                 </div>
             </div>

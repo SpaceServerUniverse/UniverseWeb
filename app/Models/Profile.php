@@ -11,7 +11,7 @@ class Profile extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["introduction"];
+    protected $fillable = ["introduction" , "show_last_login"];
 
     protected $connection = 'mysql';
 
