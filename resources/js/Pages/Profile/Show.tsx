@@ -231,14 +231,7 @@ export default function Show(props: any) {
                                                                         <DisplayStatus title="連続ログイン日数"
                                                                                        counter={props.user.count.player_count.consecutive_login + "回"}/>
                                                                         {(() => {
-                                                                            if (props.auth.user.id === props.user.id) {
-                                                                                return (
-                                                                                    <DisplayStatus
-                                                                                        title="最終ログイン日時"
-                                                                                        counter={last_login_date}/>
-                                                                                );
-                                                                            }
-                                                                            if (props.user.profile.show_last_login) {
+                                                                            if (props.auth.user.id === props.user.id || props.user.profile.show_last_login) {
                                                                                 return (
                                                                                     <DisplayStatus
                                                                                         title="最終ログイン日時"
@@ -249,7 +242,6 @@ export default function Show(props: any) {
                                                                                 title="最終ログイン日時"
                                                                                 counter="非表示"/>
                                                                         })()}
-
                                                                     </>
                                                                 );
                                                             } else {
