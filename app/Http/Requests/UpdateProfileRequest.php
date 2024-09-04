@@ -21,14 +21,14 @@ class UpdateProfileRequest extends FormRequest
      */
     public function rules(): array {
         return [
-            "introduction" => ["required", "max:400"]
+            "introduction" => ["required", "max:100"]
         ];
     }
 
     public function messages() {
         return [
             "introduction.required" => "自己紹介は必須です。",
-            "introduction.max" => "自己紹介は400文字までです。"
+            "introduction.max" => "自己紹介は100文字までです。"
         ];
     }
 }

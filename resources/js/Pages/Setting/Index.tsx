@@ -57,7 +57,7 @@ export default function Index(props: any) {
                                     <FormLabel sx={{textAlign: "left"}}>自己紹介</FormLabel>
                                     <Textarea placeholder="迷ったら自分の好きなことを伝えてみよう！" minRows={4}
                                               required={true}
-                                              slotProps={{textarea: {maxLength: 400}}}
+                                              slotProps={{textarea: {maxLength: 100}}}
                                               onChange={e => setData('introduction', e.target.value)}
                                               defaultValue={props.profile.introduction}
                                     />
