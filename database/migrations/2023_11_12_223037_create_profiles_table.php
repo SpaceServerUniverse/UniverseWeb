@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id")->unique();
-            $table->text("introduction");
+            $table->string("introduction")->default("よろしくお願いします！");
             $table->timestamps();
         });
     }
