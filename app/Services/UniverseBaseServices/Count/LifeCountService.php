@@ -7,5 +7,9 @@ class LifeCountService{
     public function __construct(private LifeCountRepository $lifeCountRepository) {
     }
 
+    public function getBrockBreakRank($limit = 10){
+        return $this->lifeCountRepository->getRanking("block_break", $limit);
+    }
+
 
 }

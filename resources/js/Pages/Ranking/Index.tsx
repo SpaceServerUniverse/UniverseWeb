@@ -45,6 +45,17 @@ export default function Index(props: any) {
                                                 </ListItemButton>
                                             </ListItem>
                                         </Link>
+
+                                        <Link href={route('auth.ranking.block_break')}>
+                                            <ListItem disablePadding>
+                                                <ListItemButton>
+                                                    <ListItemIcon>
+                                                        <EmojiPeopleIcon/>
+                                                    </ListItemIcon>
+                                                    <ListItemText primary="ブロック破壊数ランキング"/>
+                                                </ListItemButton>
+                                            </ListItem>
+                                        </Link>
                                     </List>
                                 </nav>
                             </Box>

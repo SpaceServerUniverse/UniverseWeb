@@ -41,6 +41,17 @@ class UserRepository{
         )->where("name", $name)->first();
     }
 
+    public function getLifeRanking(string $column, int $limit){
+        return User::select('users.id', 'users.name', 'users.uuid') // 必要なカラムを選択
+        ->join('counts', 'users.id', '=', 'counts.user_id')
+            ->join('life_counts', 'counts.id', '=', 'life_counts.count_id')
+            ->selectRaw('SUM(life_counts.'.$column.') as '.$column) // 集約関数のカラムのみ選択
+            ->groupBy('users.id', 'users.name', 'users.uuid') // 必要なカラムでグループ化
+            ->orderBy($column, 'desc')
+            ->limit($limit)
+            ->get();
+    }
+
     public function getUserPagination(Request $request): LengthAwarePaginator {
         $search = $request->input("search");
         return User::query()->with(['player_level.player_level_mode_relation'])->where("name", "LIKE", "%$search%")->paginate(12);

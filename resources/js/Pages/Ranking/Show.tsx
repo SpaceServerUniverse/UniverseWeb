@@ -2,10 +2,12 @@ import React from "react";
 import {Head} from "@inertiajs/inertia-react";
 import Authenticated from "@/Layouts/Authenticated";
 import RankingPlayerCard from "@/Components/RankingPlayerCard";
+import LifeCountRankingPlayerCard from "@/Components/LifeCountRankingPlayerCard";
 
 export default function Show(props: any) {
 
     let ranking = (<></>);
+
     if(props.rank_name === "お金") {
         ranking = props.ranking.map((value: any, index: number) => {
             return <RankingPlayerCard key={index} user={value.user} rank={index + 1}
@@ -17,6 +19,20 @@ export default function Show(props: any) {
         ranking = props.ranking.map((value: any, index: number) => {
             return <RankingPlayerCard key={index}  user={value.user} rank={index + 1}
                                       val={"Lv."+value.level}></RankingPlayerCard>
+        });
+    }
+
+
+    if(props.rank_name === "ブロック採掘数") {
+        ranking = props.ranking.map((value: any, index: number) => {
+            console.log(value);
+            return <LifeCountRankingPlayerCard
+                key={value.id}
+                uuid={value.uuid}
+                username={value.name}
+                rank={index + 1}
+                val={`${value.block_break}回`}
+            />
         });
     }
 

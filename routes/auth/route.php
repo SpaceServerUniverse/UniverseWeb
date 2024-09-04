@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function() {
     Route::prefix("ranking")->namespace("ranking")->name("ranking.")->group(function(){
        Route::get("/money", [RankingController::class, "money"])->name("money");
        Route::get("/normal_level", [RankingController::class, "normal_level"])->name("normal_level");
+       Route::get("/block_break", [RankingController::class, "brock_break"])->name("block_break");
     });
 
     Route::resource("setting", SettingController::class, [

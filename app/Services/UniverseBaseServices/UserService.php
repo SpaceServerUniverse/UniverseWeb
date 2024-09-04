@@ -26,6 +26,10 @@ class UserService {
         return $this->userRepository->getUserPagination($request);
     }
 
+    public function getLifeRanking(string $column, int $limit){
+        return $this->userRepository->getLifeRanking($column, $limit);
+    }
+
     public function getSearchUserPagination($search): LengthAwarePaginator {
         return $this->userRepository->getSearchUserPagination($search);
     }
