@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function count():hasOne{
         return $this->hasOne(Count::class, "user_id");
     }
+
+    public function custom_name():hasOne{
+        return $this->hasOne(CustomName::class, "user_id");
+    }
 }

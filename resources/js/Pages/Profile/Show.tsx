@@ -39,6 +39,15 @@ export default function Show(props: any) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    {props.user.custom_name && (() => {
+                        const tag = props.user.custom_name.display_custom_tag;
+                        const modifiedTag = tag.replace(/§.{1}/g, '');
+                        return (
+                            <>
+                                <h5 className="text-xl text-center">〜 {modifiedTag} 〜</h5>
+                            </>
+                        );
+                    })()}
                     <div className="md:flex md:justify-center mx-3 px-2">
                         <div className="md:mb-4 md:mx-5">
                             <div className="flex justify-center md:block">

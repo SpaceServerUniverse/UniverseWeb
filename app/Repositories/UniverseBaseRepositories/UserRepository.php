@@ -36,7 +36,8 @@ class UserRepository{
                 'count.kill_death_count',
                 'count.life_count',
                 'count.ore_count',
-                'count.player_count'
+                'count.player_count',
+                'custom_name'
             ]
         )->where("name", $name)->first();
     }
