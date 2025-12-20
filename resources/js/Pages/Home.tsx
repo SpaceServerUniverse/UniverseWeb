@@ -33,15 +33,8 @@ export default function Home(props: any) {
 
                     <div className="flex flex-wrap justify-center md:justify-between">
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-2"
-                            style={{
-                                minWidth: 300,
-                                width: "30%",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                            style={{minWidth: 300, width: "30%"}}
                         >
                             <p className="text-lg text-center font-bold">所持金</p>
                             <div className="py-5 text-center text-2xl font-semibold text-purple-600">
@@ -49,15 +42,8 @@ export default function Home(props: any) {
                             </div>
                         </div>
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-2"
-                            style={{
-                                minWidth: 300,
-                                width: "30%",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                            style={{minWidth: 300, width: "30%"}}
                         >
                             <p className="text-lg text-center font-bold">レベル</p>
                             <div className="my-5">
@@ -70,15 +56,8 @@ export default function Home(props: any) {
                             </div>
                         </div>
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-2"
-                            style={{
-                                minWidth: 300,
-                                width: "30%",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                            style={{minWidth: 300, width: "30%"}}
                         >
                             <p className="text-lg text-center font-bold">なんか</p>
                             <div className="py-5 text-center text-2xl font-semibold text-pink-600">
@@ -89,15 +68,8 @@ export default function Home(props: any) {
 
                     <div className="flex flex-wrap justify-center md:justify-between">
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-5"
-                            style={{
-                                minWidth: 300,
-                                width: "45%",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-5"
+                            style={{minWidth: 300, width: "45%"}}
                         >
                             <p className="text-lg text-center font-bold mb-3">ステータス</p>
                             <div className="py-5 text-center">
@@ -108,15 +80,8 @@ export default function Home(props: any) {
                         </div>
 
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-5"
-                            style={{
-                                minWidth: 300,
-                                width: "45%",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-5"
+                            style={{minWidth: 300, width: "45%"}}
                         >
                             <p className="text-lg text-center font-bold mb-3">デイリーミッション(仮)</p>
                             <div className="py-5">

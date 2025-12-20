@@ -2,11 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-    font-weight:700;
+:root {
+    --pop-pink: #ff5e7e;
+    --pop-blue: #3c50ff;
+    --ink-900: #1b1b2f;
+    --surface: rgba(255, 255, 255, 0.94);
+    --surface-soft: rgba(255, 255, 255, 0.78);
 }
 
-input:focus,textarea:focus{
+body {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--ink-900);
+    background: #f6f7fb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input:focus,
+textarea:focus {
     box-shadow: none !important;
+}
+
+.app-main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(255, 94, 126, 0.08), rgba(60, 80, 255, 0.08)), #f6f7fb;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-main::before,
+.app-main::after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    z-index: 0;
+}
+
+.app-main::before {
+    background: rgba(255, 94, 126, 0.7);
+    top: -120px;
+    left: -120px;
+}
+
+.app-main::after {
+    background: rgba(60, 80, 255, 0.7);
+    bottom: -140px;
+    right: -120px;
+}
+
+.app-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 14px 40px rgba(31, 38, 135, 0.14);
+    border-radius: 16px;
+}
+
+.glass-card--soft {
+    background: var(--surface-soft);
+}
+
+.app-nav-link {
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.app-nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.section-title {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #1f2937;
 }

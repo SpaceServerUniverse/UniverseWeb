@@ -16,15 +16,7 @@ export default function Show(props: any) {
 
                 <div className="py-12">
                     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <div
-                            className="overflow-hidden rounded-lg"
-                            style={{
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
-                            }}
-                        >
+                        <div className="glass-card overflow-hidden rounded-lg">
                             <div className="p-6 text-center">
                                 <p>{props.name}は存在しないプレイヤー名です。</p>
                             </div>
@@ -69,22 +61,9 @@ export default function Show(props: any) {
                         </div>
                     </div>
 
-                    <div
-                        className="overflow-hidden rounded-lg m-3 p-2"
-                        style={{
-                            background: "rgba(255, 255, 255, 0.6)",
-                            backdropFilter: "blur(10px)",
-                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.1)",
-                            border: "1px solid rgba(255, 255, 255, 0.18)"
-                        }}
-                    >
+                    <div className="glass-card glass-card--soft overflow-hidden rounded-lg m-3 p-2">
                         <div
-                            className="overflow-hidden rounded-lg m-3 p-2 w-full"
-                            style={{
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(10px)",
-                                boxShadow: "0 4px 16px rgba(31, 38, 135, 0.1)"
-                            }}
+                            className="glass-card overflow-hidden rounded-lg m-3 p-2 w-full"
                         >
                             <p className="text-center mb-3 font-bold">自己紹介</p>
                             <p className="text-center">{introduction}</p>
@@ -92,14 +71,8 @@ export default function Show(props: any) {
                         <div className="flex flex-wrap justify-center md:justify-between md:mt-5">
                             <div>
                                 <div
-                                    className="overflow-hidden rounded-lg m-3 p-2"
-                                    style={{
-                                        minWidth: 300,
-                                        width: "30%",
-                                        background: "rgba(255, 255, 255, 0.95)",
-                                        backdropFilter: "blur(10px)",
-                                        boxShadow: "0 4px 16px rgba(31, 38, 135, 0.1)"
-                                    }}
+                                    className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                                    style={{minWidth: 300, width: "30%"}}
                                 >
                                     <p className="text-lg text-center font-bold">役職</p>
                                     <div className="py-5 text-center text-2xl font-semibold text-indigo-600">
@@ -115,14 +88,8 @@ export default function Show(props: any) {
                             </div>
                             <div>
                                 <div
-                                    className="overflow-hidden rounded-lg m-3 p-2"
-                                    style={{
-                                        minWidth: 300,
-                                        width: "30%",
-                                        background: "rgba(255, 255, 255, 0.95)",
-                                        backdropFilter: "blur(10px)",
-                                        boxShadow: "0 4px 16px rgba(31, 38, 135, 0.1)"
-                                    }}
+                                    className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                                    style={{minWidth: 300, width: "30%"}}
                                 >
                                     <p className="text-lg text-center font-bold">所持金</p>
                                     <div className="py-5 text-center text-2xl font-semibold text-purple-600">
@@ -139,14 +106,8 @@ export default function Show(props: any) {
                             </div>
                             <div>
                                 <div
-                                    className="overflow-hidden rounded-lg m-3 p-2"
-                                    style={{
-                                        minWidth: 300,
-                                        width: "30%",
-                                        background: "rgba(255, 255, 255, 0.95)",
-                                        backdropFilter: "blur(10px)",
-                                        boxShadow: "0 4px 16px rgba(31, 38, 135, 0.1)"
-                                    }}
+                                    className="glass-card overflow-hidden rounded-lg m-3 p-2"
+                                    style={{minWidth: 300, width: "30%"}}
                                 >
                                     <p className="text-lg text-center font-bold">レベル</p>
                                     <div className="my-5">

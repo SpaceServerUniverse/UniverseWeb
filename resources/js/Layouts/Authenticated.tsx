@@ -257,25 +257,25 @@ export default function Authenticated({auth, children, flash}: Props) {
                             <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                                 <Link
                                     href={route("auth.search.index")}
-                                    className="text-sm text-white ms-4 mx-2"
+                                    className="app-nav-link text-sm text-white ms-4 mx-2"
                                 >
                                     検索
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-sm text-white mx-2"
+                                    className="app-nav-link text-sm text-white mx-2"
                                 >
                                     ショップ
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-sm text-white mx-2"
+                                    className="app-nav-link text-sm text-white mx-2"
                                 >
                                     フレンド
                                 </Link>
                                 <Link
                                     href={route("auth.ranking.index")}
-                                    className="text-sm text-white mx-2"
+                                    className="app-nav-link text-sm text-white mx-2"
                                 >
                                     ランキング
                                 </Link>
@@ -330,13 +330,8 @@ export default function Authenticated({auth, children, flash}: Props) {
                     {renderMenu}
                 </Box>
             </header>
-            <main
-                style={{
-                    minHeight: "100vh",
-                    background: "linear-gradient(135deg, rgba(255, 94, 126, 0.1), rgba(60, 80, 255, 0.1)), #f3f4f6"
-                }}
-            >
-                {children}
+            <main className="app-main">
+                <div className="app-container">{children}</div>
             </main>
             <footer>
                 <div className="w-full bg-black p-4" style={{minHeight: "100px"}}>

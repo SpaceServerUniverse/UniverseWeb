@@ -22,12 +22,7 @@ export default function Guest({ children }: Props) {
             </div>
 
             <div
-                className="w-full sm:max-w-md mt-6 px-6 py-4 overflow-hidden sm:rounded-lg"
-                style={{
-                    background: "rgba(255, 255, 255, 0.95)",
-                    backdropFilter: "blur(10px)",
-                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                }}
+                className="glass-card w-full sm:max-w-md mt-6 px-6 py-4 overflow-hidden sm:rounded-lg"
             >
                 {children}
             </div>

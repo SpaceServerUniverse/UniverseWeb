@@ -68,10 +68,11 @@ export default function Index(props: any) {
                                 display: 'flex',
                                 alignItems: 'center',
                                 width: 400,
-                                background: "rgba(255, 255, 255, 0.95)",
+                                background: "var(--surface)",
                                 backdropFilter: "blur(10px)",
-                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                                border: "1px solid rgba(255, 255, 255, 0.18)"
+                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.12)",
+                                border: "1px solid rgba(255, 255, 255, 0.45)",
+                                borderRadius: "999px"
                             }}
                         >
                             <InputBase
@@ -87,14 +88,15 @@ export default function Index(props: any) {
                             </IconButton>
                         </Paper>
                     </Box>
-                    <h3 className="text-3xl font-bold text-gray-800 mb-4">プレイヤーリスト</h3>
+                    <h3 className="section-title text-3xl mb-4">プレイヤーリスト</h3>
                     <Card
                         className="mt-4 p-9"
                         sx={{
-                            background: "rgba(255, 255, 255, 0.95)",
+                            background: "var(--surface)",
                             backdropFilter: "blur(10px)",
-                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                            border: "1px solid rgba(255, 255, 255, 0.18)"
+                            boxShadow: "0 10px 28px rgba(31, 38, 135, 0.12)",
+                            border: "1px solid rgba(255, 255, 255, 0.45)",
+                            borderRadius: "16px"
                         }}
                     >
                         <Box sx={{display: "flex", justifyContent: 'space-around', flexWrap: 'wrap'}}>

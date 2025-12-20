@@ -20,16 +20,8 @@ export default function Index(props: any) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
-                    <div
-                        className="overflow-hidden rounded-lg py-5"
-                        style={{
-                            background: "rgba(255, 255, 255, 0.95)",
-                            backdropFilter: "blur(10px)",
-                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
-                            border: "1px solid rgba(255, 255, 255, 0.18)"
-                        }}
-                    >
-                        <h2 className="text-2xl text-center font-bold mb-6 text-gray-800">ランキング一覧</h2>
+                    <div className="glass-card overflow-hidden rounded-lg py-5">
+                        <h2 className="section-title text-2xl text-center mb-6">ランキング一覧</h2>
                         <div className="flex justify-center">
                             <Box sx={{width: '100%', maxWidth: 360}}>
                                 <nav aria-label="main mailbox folders">
