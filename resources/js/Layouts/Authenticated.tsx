@@ -235,13 +235,21 @@ export default function Authenticated({auth, children, flash}: Props) {
             </Snackbar>
             <header>
                 <Box sx={{flexGrow: 1}}>
-                    <AppBar color="secondary" position="static">
+                    <AppBar
+                        position="static"
+                        sx={{
+                            background: "rgba(15, 12, 40, 0.65)",
+                            backdropFilter: "blur(10px)",
+                            boxShadow: "none",
+                        }}
+                    >
                         <Toolbar>
                             <Link href={route("auth.home")}>
                                 <Typography
                                     variant="h6"
                                     noWrap
                                     component="div"
+                                    sx={{fontWeight: 800, letterSpacing: "0.08em"}}
                                 >
                                     UniverseWeb
                                 </Typography>
@@ -322,7 +330,12 @@ export default function Authenticated({auth, children, flash}: Props) {
                     {renderMenu}
                 </Box>
             </header>
-            <main className="bg-gray-100" style={{minHeight: "100vh"}}>
+            <main
+                style={{
+                    minHeight: "100vh",
+                    background: "linear-gradient(135deg, rgba(255, 94, 126, 0.1), rgba(60, 80, 255, 0.1)), #f3f4f6"
+                }}
+            >
                 {children}
             </main>
             <footer>

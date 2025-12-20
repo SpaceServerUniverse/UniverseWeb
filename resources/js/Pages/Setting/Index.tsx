@@ -44,17 +44,25 @@ export default function Index(props: any) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5">
-                        <h2 className="text-3xl text-center mb-5">設定</h2>
-                        <h3 className="text-center mb-3">プロフィール編集</h3>
+                    <div
+                        className="overflow-hidden rounded-lg py-5 px-6"
+                        style={{
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
+                            border: "1px solid rgba(255, 255, 255, 0.18)"
+                        }}
+                    >
+                        <h2 className="text-3xl text-center mb-5 font-bold text-gray-800">設定</h2>
+                        <h3 className="text-center mb-3 font-semibold text-gray-700">プロフィール編集</h3>
 
                         <div className="sm:px-0 lg:px-8 w-full text-center">
                             <form onSubmit={submit}>
-                                <div className="text-sm text-red-500">
+                                <div className="text-sm text-red-500 mb-3">
                                     {error}
                                 </div>
                                 <FormControl sx={{width: "100%"}}>
-                                    <FormLabel sx={{textAlign: "left"}}>自己紹介</FormLabel>
+                                    <FormLabel sx={{textAlign: "left", fontWeight: 600}}>自己紹介</FormLabel>
                                     <Textarea placeholder="迷ったら自分の好きなことを伝えてみよう！" minRows={4}
                                               required={true}
                                               slotProps={{textarea: {maxLength: 100}}}
@@ -63,12 +71,24 @@ export default function Index(props: any) {
                                     />
                                     <FormHelperText sx={{textAlign: "right"}}>400文字以内</FormHelperText>
                                 </FormControl>
-                                <Button type="submit" variant="contained">保存</Button>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    sx={{
+                                        mt: 2,
+                                        background: "linear-gradient(135deg, rgba(255, 94, 126, 0.85), rgba(60, 80, 255, 0.75))",
+                                        '&:hover': {
+                                            background: "linear-gradient(135deg, rgba(255, 94, 126, 1), rgba(60, 80, 255, 0.9))",
+                                        }
+                                    }}
+                                >
+                                    保存
+                                </Button>
                             </form>
                         </div>
 
-                        <div className="sm:px-0 lg:px-8 w-full">
-                            <p className="text-center mt-10">その他設定</p>
+                        <div className="sm:px-0 lg:px-8 w-full mt-8">
+                            <p className="text-center mt-10 mb-4 font-semibold text-gray-700">その他設定</p>
                             <FormControlLabel
                                 control={<Switch checked={lastLoginOption} onChange={handleLastLoginOptionChange}/>}
                                 label="最終ログイン日時表示設定"/>

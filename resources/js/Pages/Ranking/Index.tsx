@@ -20,16 +20,34 @@ export default function Index(props: any) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg py-5">
+                    <div
+                        className="overflow-hidden rounded-lg py-5"
+                        style={{
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
+                            border: "1px solid rgba(255, 255, 255, 0.18)"
+                        }}
+                    >
+                        <h2 className="text-2xl text-center font-bold mb-6 text-gray-800">ランキング一覧</h2>
                         <div className="flex justify-center">
-                            <Box sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
+                            <Box sx={{width: '100%', maxWidth: 360}}>
                                 <nav aria-label="main mailbox folders">
                                     <List>
                                         <Link href={route('auth.ranking.money')}>
                                             <ListItem disablePadding>
-                                                <ListItemButton>
+                                                <ListItemButton
+                                                    sx={{
+                                                        borderRadius: '8px',
+                                                        mx: 1,
+                                                        mb: 1,
+                                                        '&:hover': {
+                                                            background: 'rgba(255, 94, 126, 0.1)',
+                                                        }
+                                                    }}
+                                                >
                                                     <ListItemIcon>
-                                                        <CurrencyYenIcon/>
+                                                        <CurrencyYenIcon sx={{color: '#9333ea'}}/>
                                                     </ListItemIcon>
                                                     <ListItemText primary="お金ランキング"/>
                                                 </ListItemButton>
@@ -37,9 +55,18 @@ export default function Index(props: any) {
                                         </Link>
                                         <Link href={route('auth.ranking.normal_level')}>
                                             <ListItem disablePadding>
-                                                <ListItemButton>
+                                                <ListItemButton
+                                                    sx={{
+                                                        borderRadius: '8px',
+                                                        mx: 1,
+                                                        mb: 1,
+                                                        '&:hover': {
+                                                            background: 'rgba(60, 80, 255, 0.1)',
+                                                        }
+                                                    }}
+                                                >
                                                     <ListItemIcon>
-                                                        <EmojiPeopleIcon/>
+                                                        <EmojiPeopleIcon sx={{color: '#2563eb'}}/>
                                                     </ListItemIcon>
                                                     <ListItemText primary="レベルランキング"/>
                                                 </ListItemButton>
@@ -48,9 +75,17 @@ export default function Index(props: any) {
 
                                         <Link href={route('auth.ranking.block_break')}>
                                             <ListItem disablePadding>
-                                                <ListItemButton>
+                                                <ListItemButton
+                                                    sx={{
+                                                        borderRadius: '8px',
+                                                        mx: 1,
+                                                        '&:hover': {
+                                                            background: 'rgba(255, 94, 126, 0.1)',
+                                                        }
+                                                    }}
+                                                >
                                                     <ListItemIcon>
-                                                        <EmojiPeopleIcon/>
+                                                        <EmojiPeopleIcon sx={{color: '#ec4899'}}/>
                                                     </ListItemIcon>
                                                     <ListItemText primary="ブロック破壊数ランキング"/>
                                                 </ListItemButton>

@@ -7,14 +7,28 @@ interface Props {
 
 export default function Guest({ children }: Props) {
     return (
-        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+        <div
+            className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"
+            style={{
+                backgroundImage: "linear-gradient(135deg, rgba(255, 94, 126, 0.85), rgba(60, 80, 255, 0.75)), url('/img/background.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+            }}
+        >
             <div>
-                <Link href="/" className="text-2xl text-gray-600">
+                <Link href="/" className="text-4xl font-bold text-white" style={{fontWeight: 800, letterSpacing: "0.08em"}}>
                     UniverseWeb
                 </Link>
             </div>
 
-            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div
+                className="w-full sm:max-w-md mt-6 px-6 py-4 overflow-hidden sm:rounded-lg"
+                style={{
+                    background: "rgba(255, 255, 255, 0.95)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                }}
+            >
                 {children}
             </div>
         </div>

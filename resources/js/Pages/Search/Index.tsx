@@ -58,12 +58,21 @@ export default function Index(props: any) {
             flash={props.flash}
         >
             <Head title="検索 - UniverseWeb"/>
-            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5">
+            <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-5 py-12">
                 <div>
                     <Box sx={{display: "flex", justifyContent: "center"}}>
                         <Paper
                             className="text-center my-8 w-full"
-                            sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 400}}
+                            sx={{
+                                p: '2px 4px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                width: 400,
+                                background: "rgba(255, 255, 255, 0.95)",
+                                backdropFilter: "blur(10px)",
+                                boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
+                                border: "1px solid rgba(255, 255, 255, 0.18)"
+                            }}
                         >
                             <InputBase
                                 sx={{ml: 1, flex: 1}}
@@ -78,8 +87,16 @@ export default function Index(props: any) {
                             </IconButton>
                         </Paper>
                     </Box>
-                    <h3 className="text-3xl">プレイヤーリスト</h3>
-                    <Card className="mt-4 p-9">
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">プレイヤーリスト</h3>
+                    <Card
+                        className="mt-4 p-9"
+                        sx={{
+                            background: "rgba(255, 255, 255, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            boxShadow: "0 8px 32px rgba(31, 38, 135, 0.15)",
+                            border: "1px solid rgba(255, 255, 255, 0.18)"
+                        }}
+                    >
                         <Box sx={{display: "flex", justifyContent: 'space-around', flexWrap: 'wrap'}}>
                             {data.map((item: any, key: any) => (<PlayerCard props={item} key={key}></PlayerCard>))}
                         </Box>
@@ -91,7 +108,7 @@ export default function Index(props: any) {
                             page={page}
                         />
                     </div>
-                    <p className="text-center text-sm">({from}件~{to}件 全{total}件)</p>
+                    <p className="text-center text-sm text-gray-700">({from}件~{to}件 全{total}件)</p>
                 </div>
             </div>
         </Authenticated>
